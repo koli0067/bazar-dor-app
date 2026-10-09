@@ -1,7 +1,9 @@
+'use client'
 import Image from "next/image"
 import Navlink from "./Navlink"
 
 const Header = () => {
+
   const date = new Date().toLocaleDateString('bn-BD', {
     dateStyle: 'full',
   })

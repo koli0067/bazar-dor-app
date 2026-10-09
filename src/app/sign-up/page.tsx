@@ -1,5 +1,7 @@
 
 const SignUpPage = () => {
+
+
   return (
     <div>
        <div className="text-center pt-10">

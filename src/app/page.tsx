@@ -11,7 +11,7 @@ export default function Home() {
     <div className="max-w-7xl m-auto mt-10">
       <div className="flex flex-wrap justify-between px-5 py-5 bg-white">
         <div>
-          <span className="bg-green-100 p-2 rounded-2xl">{date}</span>
+          <span className="bg-green-100 p-2 rounded-2xl">{date}</span> 
           <h2 className="text-3xl font-bold mt-5 mb-5">আজকের বাজারের দাম এক নজরে</h2>
           <p className="mb-5">চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, 
             সর্বনিম্ন <br />-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
