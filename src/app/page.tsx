@@ -1,4 +1,6 @@
 
+import BazarProductsList from "@/components/BazarProductsList";
+import ProductsPage from "@/components/Products";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,7 +15,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mt-5 mb-5">আজকের বাজারের দাম এক নজরে</h2>
           <p className="mb-5">চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, 
             সর্বনিম্ন <br />-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
-            <button className="btn border bg-green-700 text-white px-2 py-1.5 rounded-[5px]">সব পণ্য দেখুন</button>
+            <button className="btn border bg-green-700 text-white px-4 py-1.5 rounded-[5px]">সব পণ্য দেখুন</button>
         </div>
         <div>
           <Image 
@@ -25,6 +27,8 @@ export default function Home() {
           </Image>
         </div>
       </div>
+      <ProductsPage></ProductsPage>
+      <BazarProductsList></BazarProductsList>
     </div>
   );
 }
