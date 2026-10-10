@@ -1,6 +1,7 @@
 
 import Image from "next/image"
 import Navlink from "./Navlink"
+import UserInfo from "./UserInfo"
 
 const Header = () => {
 
@@ -30,10 +31,7 @@ const Header = () => {
               </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-              <button className="px-3 py-1.5 text-sm sm:text-base">সাইন ইন</button>
-              <button className="bg-green-700 py-1.5 px-4 rounded text-white text-sm sm:text-base">সাইন আপ</button>
-          </div>
+          <UserInfo></UserInfo>
 
       </div>
 
