@@ -3,15 +3,21 @@
 import React from "react"
 import { signUp } from "@/lib/auth-client"
 import toast from "react-hot-toast"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 const SignUpForm = () => {
+  const router = useRouter()
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
-    const user = Object.fromEntries(formData.entries()) as Record<string, string>
+    const user = Object.fromEntries(formData.entries()) as {
+      name: string
+      email: string
+      password: string
+      confirmPassword: string
+    }
 
     // পাসওয়ার্ড ম্যাচ করছে কিনা তা চেক করা
     if (user.password !== user.confirmPassword) {
@@ -29,7 +35,7 @@ const SignUpForm = () => {
     if (data) {
       console.log(data)
       toast.success('অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!')
-      redirect('/')
+      router.push('/')
     }
 
     if (error) {
