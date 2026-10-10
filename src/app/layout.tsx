@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
-import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
        
         <Header></Header>
        <Marquee></Marquee>
+       <Toaster/>
         <main>
               {children}
         </main>
