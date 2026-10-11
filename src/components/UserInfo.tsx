@@ -21,7 +21,6 @@ const UserInfo = () => {
       {user ? (
         <div className="relative inline-block text-left">
           
-          {/* প্রোফাইল বাটন: এখানে ক্লিক করলেই বক্সটি দেখাবে/লুকাবে */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
@@ -41,25 +40,25 @@ const UserInfo = () => {
             </h2>
           </button>
 
-          {/*isOpen সত্য হলে কেবল তখনই এই বক্সটি রেন্ডার হবে */}
+         
           {isOpen && (
             <>
-              {/* স্ক্রিনের বাইরে ক্লিক করলে ড্রপডাউন বন্ধ করার অদৃশ্য লেয়ার */}
+             
               <div 
                 className="fixed inset-0 z-40" 
                 onClick={() => setIsOpen(false)} 
               />
 
-              {/* ড্রপডাউন বক্স */}
+            
               <div className="absolute right-0 mt-2 w-64 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 z-50">
                 
-                {/* ইউজার ইনফো */}
+               
                 <div className="border-b border-gray-100 pb-3 mb-3">
                   <h3 className="font-bold text-gray-900 text-lg">{user?.name}</h3>
                   <p className="text-sm text-gray-400 font-normal break-all">{user?.email}</p>
                 </div>
 
-                {/* অপশনসমূহ */}
+               
                 <ul className="space-y-2 text-base font-medium">
                   <li>
                     <Link 

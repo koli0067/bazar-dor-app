@@ -2,7 +2,7 @@ import { Product } from "@/app/types/product";
 import CategoryView from "@/components/CategoryView";
 import { notFound } from "next/navigation";
 
-// API থেকে ক্যাটাগরির ডেটা ফেচ করার ফাংশন
+
 async function getCategoryProducts(categorySlug: string): Promise<Product[]> {
   try {
     const res = await fetch(

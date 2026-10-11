@@ -47,12 +47,12 @@ export default async function ProductsPage() {
     );
   }
 
-  // Top 6 Risers (সবচেয়ে বেশি দাম বাড়া পণ্য)
+ 
   const priceIncreased = products
     .filter((p) => p.change?.dir === 'up')
     .sort((a, b) => Math.abs(b.change?.pct || 0) - Math.abs(a.change?.pct || 0));
 
-  // Top 6 Fallers (সবচেয়ে বেশি দাম কমা পণ্য)
+  
   const priceDecreased = products
     .filter((p) => p.change?.dir === 'down')
     .sort((a, b) => Math.abs(b.change?.pct || 0) - Math.abs(a.change?.pct || 0));
@@ -60,12 +60,11 @@ export default async function ProductsPage() {
   return (
     <main className="bg-[#f2f5f0] py-6 font-sans">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* আজ দাম বেড়েছে সেকশন */}
+      
         {priceIncreased.length > 0 && (
           <PriceIncreasedSection items={priceIncreased} />
         )}
 
-        {/* আজ দাম কমেছে সেকশন */}
         {priceDecreased.length > 0 && (
           <PriceDecreasedSection items={priceDecreased} />
         )}

@@ -12,12 +12,11 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
 
-  // সাইন আউট হ্যান্ডলার
   const handleSignOut = async () => {
     await signOut()
   }
 
-  // নাম আপডেট করার জন্য সঠিক ফর্ম সাবমিট হ্যান্ডলার
+  
   const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setMessage('')
@@ -42,7 +41,7 @@ const ProfilePage = () => {
       } else {
         setMessage('নাম সফলভাবে আপডেট হয়েছে!')
         
-        // নেভবার এবং প্রোফাইলের নতুন নাম সাথে সাথে দেখানোর জন্য
+     
         router.refresh()
         window.location.reload()
       }
@@ -101,7 +100,7 @@ const ProfilePage = () => {
             <label className="block text-sm font-medium text-gray-700">নাম</label>
             <input
               type="text"
-              name="name" // 👈 এই name="name" অরিজিনাল FormData ডাটা নেওয়ার জন্য আবশ্যক
+              name="name" 
               defaultValue={user?.name || ''}
               placeholder="আপনার নাম লিখুন"
               className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"

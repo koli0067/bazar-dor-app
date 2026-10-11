@@ -48,17 +48,17 @@ const SignUpForm = () => {
 
 
   
-          const handleGoogleSignIn = async() => {
-              await signIn.social({
-                  provider: "google",
-              });
-          }
-  
-          const handleGithubSignIn = async() => {
-               await signIn.social({
-              provider: "github"
-          })
-          }
+  const handleGoogleSignIn = async() => {
+      await signIn.social({
+          provider: "google",
+      });
+  }
+
+  const handleGithubSignIn = async() => {
+        await signIn.social({
+      provider: "github"
+  })
+  }
 
   return (
     <div>
