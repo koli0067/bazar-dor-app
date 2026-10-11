@@ -1,5 +1,7 @@
+
 import { Product } from "@/app/types/product";
 import ProductDetailView from "@/components/ProductDetailView";
+import { notFound } from "next/navigation";
 
 
 async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -29,11 +31,7 @@ export default async function ProductPage({ params }: PageProps) {
   const product = await getProductBySlug(resolvedParams.slug);
 
   if (!product) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f2f5f0]">
-        <p className="text-gray-500 font-medium">পণ্যটি পাওয়া যায়নি।</p>
-      </div>
-    );
+    notFound()
   }
 
   return <ProductDetailView product={product} />;

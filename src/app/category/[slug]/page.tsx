@@ -1,5 +1,6 @@
 import { Product } from "@/app/types/product";
 import CategoryView from "@/components/CategoryView";
+import { notFound } from "next/navigation";
 
 // API থেকে ক্যাটাগরির ডেটা ফেচ করার ফাংশন
 async function getCategoryProducts(categorySlug: string): Promise<Product[]> {
@@ -30,6 +31,10 @@ export default async function CategoryPage({ params }: PageProps) {
   const categorySlug = resolvedParams.slug;
 
   const products = await getCategoryProducts(categorySlug);
+
+  if (!products) {
+      notFound()
+    }
 
   return <CategoryView products={products} />;
 }
