@@ -1,10 +1,10 @@
 import { Product } from "@/app/types/product";
 import ProductDetailView from "@/components/ProductDetailView";
 
-// API থেকে সব প্রোডাক্ট এনে নির্দিষ্ট প্রোডাক্টটি খুঁজে বের করা
+
 async function getProductBySlug(slug: string): Promise<Product | null> {
   try {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products", {
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products", {
       next: { revalidate: 60 },
     });
 

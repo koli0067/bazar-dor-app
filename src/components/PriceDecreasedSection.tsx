@@ -8,14 +8,14 @@ interface Props {
   items: Product[];
 }
 
-// ইংরেজি সংখ্যা বাংলা করার হেল্পার
+
 const toBanglaNum = (num: number | undefined | null): string => {
   if (num === undefined || num === null) return '';
   const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
   return num.toString().replace(/\d/g, (d) => banglaDigits[parseInt(d, 10)]);
 };
 
-// এককের নাম বাংলায় দেখানোর হেল্পার
+
 const getUnitText = (unit: string): string => {
   if (unit === 'kg') return 'কেজি';
   if (unit === 'litre') return 'লিটার';
@@ -41,7 +41,7 @@ export default function PriceDecreasedSection({ items = [] }: Props) {
                 href={`/products/${item.slug}`}
                 className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow cursor-pointer block"
               >
-              {/* উপরের অংশ: আইকন ও নাম */}
+             
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-[#f7f8f6] flex items-center justify-center text-2xl shrink-0">
                   <span>{item.image || item.categoryIcon || '🍚'}</span>
@@ -52,7 +52,7 @@ export default function PriceDecreasedSection({ items = [] }: Props) {
                 </div>
               </div>
 
-              {/* নিচের অংশ: দাম ও সবুজ ব্যাজ */}
+             
               <div className="flex items-end justify-between mt-5">
                 <div>
                   <span className="text-[11px] text-gray-400 block mb-0.5">আজকের দাম</span>

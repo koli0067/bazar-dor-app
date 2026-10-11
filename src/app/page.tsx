@@ -2,6 +2,7 @@
 import BazarProductsList from "@/components/BazarProductsList";
 import ProductsPage from "@/components/Products";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
    const date = new Date().toLocaleDateString('bn-BD', {
@@ -15,7 +16,14 @@ export default function Home() {
           <h2 className="text-3xl font-bold mt-5 mb-5">আজকের বাজারের দাম এক নজরে</h2>
           <p className="mb-5">চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, 
             সর্বনিম্ন <br />-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
-            <button className="btn border bg-green-700 text-white px-4 py-1.5 rounded-[5px]">সব পণ্য দেখুন</button>
+
+            <Link href="#সব-পণ্য">
+            <button className="btn border
+             bg-green-700 text-white px-4 py-1.5
+              rounded-[5px]">সব পণ্য দেখুন</button>
+
+            </Link>
+
         </div>
         <div>
           <Image 

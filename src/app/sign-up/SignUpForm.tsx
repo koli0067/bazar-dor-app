@@ -1,9 +1,11 @@
 'use client'
 
 import React from "react"
-import { signUp } from "@/lib/auth-client"
+import { signIn, signUp } from "@/lib/auth-client"
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
+import { FaGithub, FaGoogle } from "react-icons/fa"
+import Link from "next/link"
 
 const SignUpForm = () => {
   const router = useRouter()
@@ -19,7 +21,7 @@ const SignUpForm = () => {
       confirmPassword: string
     }
 
-    // পাসওয়ার্ড ম্যাচ করছে কিনা তা চেক করা
+   
     if (user.password !== user.confirmPassword) {
       toast.error('পাসওয়ার্ড দুটি মেলেনি!')
       return
@@ -33,20 +35,36 @@ const SignUpForm = () => {
     })
 
     if (data) {
-      console.log(data)
+     
       toast.success('অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!')
       router.push('/')
     }
 
     if (error) {
-      console.log(error)
+     
       toast.error('কিছু একটা ঝামেলা হয়েছে!')
     }
   }
 
+
+  
+          const handleGoogleSignIn = async() => {
+              await signIn.social({
+                  provider: "google",
+              });
+          }
+  
+          const handleGithubSignIn = async() => {
+               await signIn.social({
+              provider: "github"
+          })
+          }
+
   return (
+    <div>
+    <div className="bg-white border border-gray-100 shadow-xl rounded-3xl p-8 md:p-10 flex flex-col space-y-5">
     <form onSubmit={onSubmit} className="w-full max-w-[480px]">
-      <fieldset className="bg-white border border-gray-100 shadow-xl rounded-3xl p-8 md:p-10 flex flex-col space-y-5">
+      <fieldset>
 
         {/* নাম */}
         <div>
@@ -114,6 +132,43 @@ const SignUpForm = () => {
 
       </fieldset>
     </form>
+
+      <div className="relative flex py-2 items-center justify-center my-4">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="flex-shrink mx-4 text-sm text-gray-500 font-medium">অথবা</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+      </div>
+    
+    <div className="flex gap-4 justify-center">
+      {/* Google বাটন */}
+      <button 
+        onClick={handleGoogleSignIn} 
+        className="btn flex items-center gap-2 border rounded-[10px] border-gray-300 px-4 py-2 hover:bg-gray-50 transition-all text-sm font-medium"
+      >
+        <FaGoogle className="text-red-500 text-base" />
+        <span>Google দিয়ে চালিয়ে যান</span>
+      </button>
+    
+      {/* GitHub বাটন */}
+      <button 
+        onClick={handleGithubSignIn} 
+        className="btn flex items-center gap-2 border rounded-[10px] border-gray-300 px-4 py-2 hover:bg-gray-50 transition-all text-sm font-medium"
+      >
+        <FaGithub className="text-gray-900 text-lg" />
+        <span>GitHub দিয়ে চালিয়ে যান</span>
+      </button>
+    </div>
+
+    <p className="text-center">অ্যাকাউন্ট আছে?
+       <Link href={'/sign-in'} className="text-green-500 hover:underline">সাইন ইন করুন</Link>
+    </p>
+  </div>
+
+ <div className="mt-5 text-center text-gray-500 hover:text-gray-800">
+   <Link href={'/'}>← হোম পেজে ফিরে যান</Link>
+ </div>
+
+  </div>
   )
 }
 

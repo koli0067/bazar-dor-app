@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useSession,  signOut } from '@/lib/auth-client'
+import Link from 'next/link'
 
 const UserInfo = () => {
   const { data: session } = useSession()
@@ -27,7 +28,7 @@ const UserInfo = () => {
             className="flex gap-2 py-1.5 px-3 rounded-xl hover:bg-gray-100 transition-all select-none focus:outline-none"
           >
             <div className="avatar">
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-200">
+              <div className="w-15 h-15 rounded-full overflow-hidden border border-gray-200">
                 <img 
                   alt="User Avatar" 
                   src={user?.image || "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp"} 
@@ -61,13 +62,13 @@ const UserInfo = () => {
                 {/* অপশনসমূহ */}
                 <ul className="space-y-2 text-base font-medium">
                   <li>
-                    <a 
+                    <Link 
                       href="/profile" 
                       onClick={() => setIsOpen(false)}
                       className="flex items-center gap-2.5 py-2 px-2 text-gray-700 hover:bg-gray-50 rounded-xl transition-colors"
                     >
                       👤 আমার প্রোফাইল
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <button 
@@ -86,8 +87,12 @@ const UserInfo = () => {
         </div>
       ) : (
         <div className="flex items-center gap-2 sm:gap-3">
-          <button className="px-3 py-1.5 text-sm sm:text-base">সাইন ইন</button>
-          <button className="bg-green-700 py-1.5 px-4 rounded text-white text-sm sm:text-base">সাইন আপ</button>
+         <Link href={`/sign-in`}>
+             <button className="px-3 py-1.5 text-sm sm:text-base">সাইন ইন</button>
+         </Link>
+         <Link href={`/sign-up`}>
+            <button className="bg-green-700 py-1.5 px-4 rounded text-white text-sm sm:text-base">সাইন আপ</button>
+          </Link>
         </div>
       )}
     </div>

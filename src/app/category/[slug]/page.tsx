@@ -5,7 +5,7 @@ import CategoryView from "@/components/CategoryView";
 async function getCategoryProducts(categorySlug: string): Promise<Product[]> {
   try {
     const res = await fetch(
-      `https://api.abcz.workers.dev/api/bazardor/products?category=${categorySlug}`,
+      `https://openapi.programming-hero.com/api/bazardor/products?category=${categorySlug}`,
       { next: { revalidate: 60 } } // প্রতি ৬০ সেকেন্ডে নতুন ডেটা চেক করবে
     );
 

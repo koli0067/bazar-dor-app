@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 
-// ইংরেজি সংখ্যা থেকে বাংলা সংখ্যায় কনভার্ট করার হেল্পার
+
 const toBanglaNum = (num: number | undefined | null): string => {
   if (num === undefined || num === null) return '০';
   const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
   return num.toString().replace(/\d/g, (d) => banglaDigits[parseInt(d, 10)]);
 };
 
-// এককের নাম বাংলায় দেখানোর হেল্পার
+
 const getUnitText = (unit: string): string => {
   if (unit === 'kg') return 'কেজি';
   if (unit === 'litre') return 'লিটার';
@@ -21,7 +21,7 @@ const getUnitText = (unit: string): string => {
   return unit || 'কেজি';
 };
 
-// Twemoji CDN দিয়ে ইমেজ রেন্ডার করার হেল্পার
+
 const renderProductImage = (item: Product) => {
   const emojiStr = item.image || item.categoryIcon || '🍚';
 
@@ -59,7 +59,7 @@ export default function BazarProductsList() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch('https://api.api-store.workers.dev/api/bazardor/products')
+    fetch('https://openapi.programming-hero.com/api/bazardor/products')
       .then((res) => res.json())
       .then((data) => {
         setProducts(Array.isArray(data) ? data : data.data || []);
@@ -76,7 +76,7 @@ export default function BazarProductsList() {
   }
 
   return (
-    <div className="bg-[#f2f5f0] min-h-screen py-6 font-sans">
+    <div id="সব-পণ্য" className="bg-[#f2f5f0] min-h-screen py-6 scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-4">
         
         {/* হেডার সেকশন */}
@@ -99,12 +99,12 @@ export default function BazarProductsList() {
   );
 }
 
-// সিঙ্গেল প্রডাক্ট কার্ড
+
 function ProductCard({ item }: { item: Product }) {
   const dir = item.change?.dir || 'flat';
   const pct = Math.abs(item.change?.pct || 0);
 
-  // দাম বাড়া/কমা/একই থাকার ডাইনামিক স্টাইল
+
   let badgeStyle = 'bg-gray-100 text-gray-500';
   let badgeSymbol = '—';
 
@@ -119,7 +119,7 @@ function ProductCard({ item }: { item: Product }) {
   return (
     <Link
     href={`/products/${item.slug}`} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
-      {/* কার্ড হেডার: আইকন ও নাম */}
+     
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 rounded-xl bg-[#f7f8f6] flex items-center justify-center shrink-0 overflow-hidden">
           {renderProductImage(item)}
@@ -130,7 +130,7 @@ function ProductCard({ item }: { item: Product }) {
         </div>
       </div>
 
-      {/* কার্ড ফুটার: দাম ও চেঞ্জ পার্সেন্টেজ */}
+     
       <div className="flex items-end justify-between mt-5">
         <div>
           <span className="text-[11px] text-gray-400 block mb-0.5">আজকের দাম</span>
@@ -139,7 +139,7 @@ function ProductCard({ item }: { item: Product }) {
           </div>
         </div>
 
-        {/* চেঞ্জ ব্যাজ */}
+      
         <div className={`px-2 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1 ${badgeStyle}`}>
           <span className="text-[10px]">{badgeSymbol}</span>
           <span>{toBanglaNum(pct)}%</span>

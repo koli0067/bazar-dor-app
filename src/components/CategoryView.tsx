@@ -11,17 +11,17 @@ interface Props {
 export default function CategoryView({ products }: Props) {
   const [sortOption, setSortOption] = useState<string>("default");
 
-  // দামের ওপর ভিত্তি করে পণ্য সর্টিং লজিক (বাংলা ও ইংরেজি উভয় সংখ্যার জন্য নিরাপদ)
+  
   const sortedProducts = useMemo(() => {
     if (!products || products.length === 0) return [];
 
     const list = [...products];
 
-    // দামকে সব ধরনের ফরম্যাট থেকে আসল সংখ্যায় (Number) পরিণত করার হেলপার
+
     const getNumericPrice = (p: Product) => {
       if (typeof p.today === "number") return p.today;
 
-      // বাংলা সংখ্যাকে ইংরেজি সংখ্যায় রূপান্তর (যেমন: "১৪৮" -> 148)
+     
       const bnToEn: { [key: string]: string } = {
         "০": "0", "১": "1", "২": "2", "৩": "3", "৪": "4",
         "৫": "5", "৬": "6", "৭": "7", "৮": "8", "৯": "9",
@@ -30,20 +30,20 @@ export default function CategoryView({ products }: Props) {
       return parseFloat(cleanStr) || 0;
     };
 
-    // দাম: কম থেকে বেশি (Ascending)
+   
     if (sortOption === "low-high") {
       return list.sort((a, b) => getNumericPrice(a) - getNumericPrice(b));
     }
 
-    // দাম: বেশি থেকে কম (Descending)
+  
     if (sortOption === "high-low") {
       return list.sort((a, b) => getNumericPrice(b) - getNumericPrice(a));
     }
 
-    return list; // ডিফল্ট অর্ডার
+    return list; 
   }, [products, sortOption]);
 
-  // পণ্য না থাকলে খালি পেজ প্রদর্শনের ব্যবস্থা
+  
   if (!products || products.length === 0) {
     return (
       <div className="bg-[#f2f5f0] min-h-screen flex items-center justify-center p-4">
@@ -73,7 +73,7 @@ export default function CategoryView({ products }: Props) {
     <div className="bg-[#f2f5f0] min-h-screen py-6 px-4 md:py-8">
       <div className="max-w-7xl mx-auto space-y-4">
         
-        {/* ব্যানার সংক্রান্ত তথ্য */}
+      
         <div className="bg-white p-6 rounded-2xl border border-gray-100/80 flex items-center gap-4 shadow-sm">
           <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
             {categoryIcon}
@@ -86,7 +86,7 @@ export default function CategoryView({ products }: Props) {
           </div>
         </div>
 
-        {/* সোর্ট ফিল্টার */}
+       
         <div className="bg-white p-4 rounded-2xl border border-gray-100/80 flex justify-end items-center shadow-sm">
           <div className="flex items-center gap-3 text-sm text-gray-500">
             <span className="text-xs font-medium">সাজান:</span>
@@ -102,12 +102,12 @@ export default function CategoryView({ products }: Props) {
           </div>
         </div>
 
-        {/* মোট সংখ্যা */}
+       
         <p className="text-xs text-gray-500 px-1 pt-1 font-medium">
           মোট {sortedProducts.length}টি পণ্য দেখানো হচ্ছে
         </p>
 
-        {/* প্রোডাক্ট গ্রিড */}
+       
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
           {sortedProducts.map((product) => {
             const isUp = product.change?.dir === "up";
