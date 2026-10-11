@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+A modern web application built for tracking daily commodity market prices with category views, smart sorting, real-time marquee updates, and secure user authentication.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Live Marquee Ticker:** Real-time commodity price updates and market trends displayed via a scrolling marquee component.
+2. **Category-wise Browsing:** Clean and organized product views categorized by essential commodities, food items, and daily essentials.
+3. **Smart Price Sorting:** Advanced sorting options (Low to High, High to Low, Default) with full support for numeric values and Bengali numerals.
+4. **Secure Authentication:** Multi-provider sign-in and registration support including Email/Password, Google, and GitHub powered by **Better Auth**.
+5. **User Profile Management:** Dedicated user profile routes with seamless options to update account details and user names.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+* **Frontend:** Next.js (App Router), React, TypeScript
+* **Styling:** Tailwind CSS, DaisyUI, React Icons
+* **Authentication:** Better Auth (Email & Social OAuth)
+* **Database:** MongoDB
+* **Deployment:** Vercel
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To run this project locally, follow these steps:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/koli0067/bazar-dor.git](https://github.com/koli0067/bazar-dor.git)
